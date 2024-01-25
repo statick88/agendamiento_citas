@@ -6,10 +6,10 @@ function VerCitasAgendadas() {
   const [citas, setCitas] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/appointments') // Asegúrate de reemplazar esto con la URL de tu servidor
+    fetch('http://localhost:3001/appointments')
       .then(response => response.json())
-      .then(data => setCitas(data.appointments));
-  }, []);
+      .then(data => setCitas(data));
+  }, []);
 
   return (
     <div>
