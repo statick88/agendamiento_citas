@@ -6,20 +6,20 @@ function VerCitasAgendadas() {
   const [citas, setCitas] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/appointments') // Asegúrate de reemplazar esto con la URL de tu servidor
+    fetch('http://localhost:3001/appointments')
       .then(response => response.json())
-      .then(data => setCitas(data.appointments));
+      .then(data => setCitas(data));
   }, []);
 
   return (
     <div>
-      <Link to="/crear-cita">Crear nueva cita</Link>
       <h2>Citas Agendadas:</h2>
       <div>
         {citas.map(cita => (
-          <div key={cita.id}>
-            <p>{cita.date} - {cita.name}</p>
-            <p>{cita.description}</p>
+          <div key={cita.id} className="cita-container">
+            <p className="cita-date">{cita.date} - {cita.name}</p>
+            <p className="cita-description">{cita.description}</p>
+            <Link to={`/editar-cita/${cita.id}`}>Editar</Link>
           </div>
         ))}
       </div>

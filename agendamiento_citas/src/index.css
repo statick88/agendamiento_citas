@@ -2,11 +2,9 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -23,16 +21,25 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
+  margin: auto;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #333; /* Fondo oscuro para el cuerpo */
+  color: #fff; /* Texto blanco para contraste */
 }
 
+h1, h2, h3 {
+  text-align: center;
+  color: #fff; /* Títulos en blanco para contraste */
+}
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+}
+h2 {
+  font-size: 2.2em;
+}
+h3 {
+  font-size: 1.2em;
 }
 
 button {
@@ -42,15 +49,16 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #646cff; /* Botón con el color principal */
+  color: #fff; /* Texto del botón en blanco */
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.25s, border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: #535bf2; /* Efecto hover para el botón */
+  border-color: #535bf2;
 }
-button:focus,
-button:focus-visible {
+button:focus, button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -64,5 +72,196 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+    color: #213547;
   }
+}
+
+
+/* Estilos para la navegación */
+.navegador {
+  display: flex; /* Usar flexbox para la navegación */
+  justify-content: center; /* Centrar los elementos de navegación horizontalmente */
+  flex-wrap: wrap; /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+  margin-bottom: 2rem; /* Espaciado debajo de la navegación */
+}
+
+.lista {
+  list-style: none; /* Remover estilos de lista */
+  padding: 0;
+  margin: 0;
+  display: flex; /* Usar flexbox para la lista */
+  gap: 1rem; /* Espaciado entre elementos de la lista */
+  justify-content: center; /* Centrar los elementos de la lista */
+  flex-wrap: wrap; /* Permitir envoltura en pantallas pequeñas */
+}
+
+.listas {
+  margin: 0; /* Remover márgenes para elementos de la lista */
+}
+
+.link {
+  text-decoration: none; /* Remover subrayado de los enlaces */
+  font-weight: bold;
+  font-size: 1.5rem; /* Tamaño de fuente reducido para adaptabilidad */
+  padding: 0.5rem 1rem; /* Espaciado interior para los enlaces */
+  border-radius: 8px; /* Bordes redondeados */
+  transition: color 0.3s, background-color 0.3s; /* Transición suave para los efectos */
+}
+
+.link.crear {
+  background-color: #28a745; /* Fondo verde para 'Crear Cita' */
+  color: #fff; /* Texto blanco para contraste */
+}
+
+.link.ver {
+  background-color: #007bff; /* Fondo azul para 'Ver Citas' */
+  color: #fff; /* Texto blanco para contraste */
+}
+
+.link:hover {
+  opacity: 0.8; /* Efecto opacidad al pasar el ratón */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navegador {
+    flex-direction: column; /* Apilar los elementos verticalmente en pantallas pequeñas */
+  }
+
+  .lista {
+    justify-content: center; /* Centrar los elementos de la lista en pantallas pequeñas */
+  }
+
+  .link {
+    width: 100%; /* Ancho completo para los enlaces en pantallas pequeñas */
+    text-align: center; /* Alinear el texto al centro */
+    margin-bottom: 0.5rem; /* Espaciado debajo de cada enlace */
+  }
+}
+
+/* Estilos para crear cita */
+
+.padre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.formulario {
+  background-color: #424242; /* Fondo claro en el formulario para contraste */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  margin: auto; /* Centrado automático */
+}
+
+.campo {
+  margin-bottom: 20px;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #fff; /* Etiquetas en blanco */
+}
+
+.campo input[type="date"],
+.campo input[type="text"],
+.campo textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #333; /* Fondo de los campos más oscuro para contraste */
+  color: #fff; /* Texto de los campos en blanco */
+}
+
+.botonfinal {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #646cff; /* Botón con el color principal */
+  color: #fff; /* Texto del botón en blanco */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.botonfinal:hover {
+  background-color: #535bf2; /* Efecto hover para el botón */
+}
+
+/* Estilos para las citas agendadas */
+.cita-container {
+  margin: 1rem auto; /* Espaciado alrededor de cada cita */
+  padding: 1rem; /* Espaciado interior */
+  border: 1px solid #646cff; /* Borde con el color principal */
+  border-radius: 8px; /* Bordes redondeados */
+  background-color: #2c2c2c; /* Fondo más oscuro para las citas */
+  color: #fff; /* Texto en blanco para contraste */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  max-width: 600px; /* Ancho máximo de la cita */
+  margin-bottom: 10px; /* Espaciado en la parte inferior */
+}
+
+.cita-date {
+  font-weight: bold; /* Fecha en negrita */
+  margin-bottom: 0.5rem; /* Espaciado debajo de la fecha */
+}
+
+.cita-description {
+  font-style: italic; /* Descripción en cursiva */
+  margin-bottom: 0.5rem; /* Espaciado debajo de la descripción */
+}
+.editar-cita-container {
+  background-color: #424242; /* Fondo claro en el formulario para contraste */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px; /* Ancho máximo del formulario */
+  margin: 2rem auto; /* Centrado y espaciado desde arriba y abajo */
+  color: #fff; /* Texto en blanco para contraste */
+}
+
+.editar-cita-form {
+  display: flex;
+  flex-direction: column; /* Organiza los elementos del formulario en columna */
+}
+
+.editar-cita-form label {
+  margin-bottom: 0.5rem; /* Espaciado debajo de las etiquetas */
+}
+
+.editar-cita-form input {
+  padding: 10px;
+  margin-bottom: 1rem; /* Espaciado entre campos de texto */
+  border: 1px solid #ddd;
+  border-radius: 4px; /* Bordes redondeados */
+  background-color: #333; /* Fondo de los campos más oscuro para contraste */
+  color: #fff; /* Texto de los campos en blanco */
+  font-size: 16px;
+}
+
+.editar-cita-form button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #646cff; /* Botón con el color principal */
+  color: #fff; /* Texto del botón en blanco */
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.editar-cita-form button:hover {
+  background-color: #535bf2; /* Efecto hover para el botón */
 }
