@@ -10,7 +10,7 @@ module.exports = {
       "id": "3",
       "date": "2022-12-03",
       "name": "Appointment 4",
-      "description": "Esta es una prueba de cita"
+      "description": "Esta es una prueba de cita 3"
     },
     {
       "id": "4",
