@@ -7,7 +7,7 @@
       <Router>
         <div>
         <button>
-            <a href="/">Regresar</a>
+            <a href="/">Home</a>
           </button>
           <hr />
           <h1>Sistema de Agendamiento de Citas.</h1>
