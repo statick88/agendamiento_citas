@@ -14,6 +14,9 @@ Luego, instala las dependencias:
 ```bash	
 cd <nombre del repositorio>
 npm install
+
+En el Server:
+npm install corse
 ```
 Uso
 Para iniciar la aplicación en modo de desarrollo, ejecuta:
