@@ -11,6 +11,24 @@ module.exports = {
       "date": "2022-12-03",
       "name": "Appointment 5",
       "description": "This is another test appointment"
+    },
+    {
+      "id": "5",
+      "date": "2024-12-03",
+      "name": "Appointment 5",
+      "description": "This is another test appointment"
+    },
+    {
+      "id": "6",
+      "date": "2024-01-19",
+      "name": "Cita 6",
+      "description": "Cita para ir al odontologo"
+    },
+    {
+      "id": "7",
+      "date": "2024-01-17",
+      "name": "Juliana Escobar",
+      "description": "Medico general"
     }
   ]
 }
