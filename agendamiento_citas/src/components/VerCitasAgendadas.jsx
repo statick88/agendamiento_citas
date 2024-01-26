@@ -1,15 +1,20 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function VerCitasAgendadas() {
-  console.log('Rendering VerCitasAgendadas component');
   const [citas, setCitas] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/appointments') // Asegúrate de reemplazar esto con la URL de tu servidor
+    fetch('http://localhost:3001/appointments')
       .then(response => response.json())
-      .then(data => setCitas(data.appointments));
+      .then(data => setCitas(data));
   }, []);
+
+  const handleUpdateCita = (id) => {
+    // Implementa la lógica para abrir un formulario modal o redirigir a una página de actualización
+    console.log(`Actualizar cita con ID: ${id}`);
+    // Puedes abrir un formulario modal, redirigir a una página de actualización, etc.
+  };
 
   return (
     <div>
@@ -18,8 +23,11 @@ function VerCitasAgendadas() {
       <div>
         {citas.map(cita => (
           <div key={cita.id}>
-            <p>{cita.date} - {cita.name}</p>
-            <p>{cita.description}</p>
+            <p>Fecha: {cita.date}</p>
+            <p>Cita: {cita.name}</p>
+            <p>Descripcion: {cita.description}</p>
+            {/* Agrega un botón para actualizar la cita */}
+            <button onClick={() => handleUpdateCita(cita.id)}>Actualizar Cita</button>
           </div>
         ))}
       </div>
