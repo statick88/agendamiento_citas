@@ -23,9 +23,9 @@ function VerCitasAgendadas() {
       <div>
         {citas.map(cita => (
           <div key={cita.id}>
-            <p>{cita.date}</p>
-            <p>{cita.name}</p>
-            <p>{cita.description}</p>
+            <p>Fecha: {cita.date}</p>
+            <p>Cita: {cita.name}</p>
+            <p>Descripcion: {cita.description}</p>
             {/* Agrega un botón para actualizar la cita */}
             <button onClick={() => handleUpdateCita(cita.id)}>Actualizar Cita</button>
           </div>

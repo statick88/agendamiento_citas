@@ -74,8 +74,9 @@ function CrearCita() {
       <div>
         {citas.map(cita => (
           <div key={cita.id}>
-            <p>{cita.date} - {cita.name}</p>
-            <p>{cita.description}</p>
+            <p>Fecha: {cita.date}</p>
+            <p>Cita: {cita.name}</p>
+            <p>Descripcion: {cita.description}</p>
           </div>
         ))}
       </div>
