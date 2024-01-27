@@ -40,3 +40,61 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Estilos para el contenedor principal */
+/* Estilos para el contenedor principal */
+.app-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center; /* Alineación horizontal centrada */
+}
+
+/* Estilos para el encabezado */
+.app-container h1 {
+  margin-bottom: 20px;
+  font-size: 20px; /* Tamaño de fuente reducido */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: font-size 0.2s ease; /* Transición suave del tamaño de la fuente */
+}
+
+.app-container h1:hover {
+  color: #007bff; /* Cambia el color al pasar el mouse */
+  font-size: 22px; /* Tamaño de fuente al hacer hover */
+}
+
+/* Estilos para los enlaces de navegación */
+.app-container ul {
+  padding: 0;
+}
+
+.app-container li {
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.app-container li:last-child {
+  margin-right: 0;
+}
+
+.app-container li a, 
+.app-container button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  transition: background-color 0.2s ease, color 0.2s ease; /* Transición suave del color de fondo y del texto */
+}
+
+.app-container li a:hover, 
+.app-container button:hover {
+  background-color: #007bff;
+  color: #fff;
+}

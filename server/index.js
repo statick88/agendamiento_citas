@@ -1,7 +1,9 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const cors = require('cors'); // Added to allow CORS requests
 const app = express();
+app.use(cors()); // Added to allow CORS requests
 app.use(express.json());
 
 let db = require('../database/db.js');
@@ -26,12 +28,12 @@ function writeDb() {
 }
 
 // GET endpoint to retrieve all appointments
-app.get('/appointments', (req, res) => {
+app.get('/appointments', cors(), (req, res) => {
   res.json(db.appointments);
 });
 
 // GET endpoint to retrieve a specific appointment by ID
-app.get('/appointments/:id', (req, res) => {
+app.get('/appointments/:id', cors(), (req, res) => {
   const { id } = req.params;
 
   const appointment = db.appointments.find(appointment => appointment.id === id);
@@ -61,25 +63,26 @@ app.post('/appointments', (req, res) => {
   res.status(201).json(newAppointment);
 });
 
-// app.put('/appointments/:id', (req, res) => {
-//   const id = req.params.id;
-//   let { date, name, description } = req.body;
+// PUT endpoint to update an existing appointment
+ app.put('/appointments/:id', (req, res) => {
+   const id = req.params.id;
+   let { date, name, description } = req.body;
 
-//   const appointmentIndex = db.appointments.findIndex(appointment => appointment.id === id);
-//   if (appointmentIndex === -1) {
-//     return res.status(404).json({ error: 'Appointment not found' });
-//   }
+   const appointmentIndex = db.appointments.findIndex(appointment => appointment.id === id);
+   if (appointmentIndex === -1) {
+     return res.status(404).json({ error: 'Appointment not found' });
+   }
 
 //   // If date, name or description are not provided in the request, keep the current values
-//   date = date || db.appointments[appointmentIndex].date;
-//   name = name || db.appointments[appointmentIndex].name;
-//   description = description || db.appointments[appointmentIndex].description;
+   date = date || db.appointments[appointmentIndex].date;
+   name = name || db.appointments[appointmentIndex].name;
+   description = description || db.appointments[appointmentIndex].description;
 
-//   db.appointments[appointmentIndex] = { id, date, name, description };
+   db.appointments[appointmentIndex] = { id, date, name, description };
 
-//   writeDb();
-//   res.json(db.appointments[appointmentIndex]);
-// });
+   writeDb();
+   res.json(db.appointments[appointmentIndex]);
+ });
 
 // DELETE endpoint to delete an existing appointment
 app.delete('/appointments/:id', (req, res) => {
@@ -95,6 +98,7 @@ app.delete('/appointments/:id', (req, res) => {
   res.status(204).end();
 });
 
+// Start the server
 app.listen(3001, () => {
   console.log('Server is running on port 3001');
 });

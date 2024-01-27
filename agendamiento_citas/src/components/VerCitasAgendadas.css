@@ -1,0 +1,36 @@
+/* Estilos para el contenedor principal */
+.ver-citas-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilos para la tabla */
+  .ver-citas-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .ver-citas-table th,
+  .ver-citas-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .ver-citas-table th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .ver-citas-table td {
+    background-color: #fff;
+  }
+  
+  .ver-citas-table tr:nth-child(even) td {
+    background-color: #f2f2f2;
+  }
+  
