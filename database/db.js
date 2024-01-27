@@ -2,9 +2,9 @@ module.exports = {
   "appointments": [
     {
       "id": "1",
-      "date": "2024-01-03",
+      "date": "2024-01-04",
       "name": "Cardiologia",
-      "description": "Realizar electroencefalograma"
+      "description": "Realizar electrocardiograma"
     },
     {
       "id": "2",
