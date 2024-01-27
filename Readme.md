@@ -15,6 +15,13 @@ Luego, instala las dependencias en el proyecto y el servidor:
 cd <nombre del repositorio>
 npm install
 ```
+Luego, iniciar el servidor:
+
+```bash	
+cd <carpeta servidor>
+node index.js
+```
+
 Uso
 Para iniciar la aplicación en modo de desarrollo, ejecuta:
 
