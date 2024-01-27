@@ -7,6 +7,8 @@
       <Router>
         <div>
           <h1>Sistema de Agendamiento de Citas.</h1>
+          <li><a href="/ver-citas">Ver Cita</a></li>
+          <li><a href="/crear-cita">Crear Cita</a></li>
           <Switch>
             <Route path="/crear-cita">
               <CrearCita />

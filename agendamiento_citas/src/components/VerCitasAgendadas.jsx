@@ -8,7 +8,7 @@ function VerCitasAgendadas() {
   useEffect(() => {
     fetch('http://localhost:3001/appointments') // Asegúrate de reemplazar esto con la URL de tu servidor
       .then(response => response.json())
-      .then(data => setCitas(data.appointments));
+      .then(data => setCitas(data));
   }, []);
 
   return (
@@ -16,12 +16,16 @@ function VerCitasAgendadas() {
       <Link to="/crear-cita">Crear nueva cita</Link>
       <h2>Citas Agendadas:</h2>
       <div>
-        {citas.map(cita => (
-          <div key={cita.id}>
-            <p>{cita.date} - {cita.name}</p>
-            <p>{cita.description}</p>
-          </div>
-        ))}
+      {citas && citas.map(cita => (
+        <div key={cita.id}>
+          <p>Fecha     -     Nombre</p>
+          <p>{cita.date} - {cita.name}</p>
+          Descripcion
+          <p>{cita.description}</p>
+          <p>------------------------------</p>
+        </div>
+         
+      ))}
       </div>
     </div>
   );
