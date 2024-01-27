@@ -24,6 +24,11 @@ npm install
 nmp install corse
 ```
 Uso
+Para iniciar la aplicación es importante iniciar el server, ejecuta en la ruta del servidor:
+
+```bash	
+node index.js
+```
 Para iniciar la aplicación en modo de desarrollo, ejecuta:
 
 ```bash	
