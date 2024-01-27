@@ -1,26 +1,51 @@
-'use client'
+"use client";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-function CrearCita() {
-  const handleSubmit =  async (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const description = e.target.description.value;
-    const date = e.target.date.value;
-    const res = await fetch("http://localhost:4000/appointments", {
-      
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({name, description}),
-    })
-    const data = await res.json();
-    console.log(data);
-  }
+function CrearCita({ params }) {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  useEffect(() => {
+    if (params.id) {
+      fetch("http://localhost:4000/appointments/" + params.id)
+        .then((res) => res.json())
+        .then((data) => {
+          setName(data.name);
+          setDescription(data.description);
+        });
+    }
+  }, []);
+
   const router = useRouter();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (params.id) {
+      fetch("http://localhost:4000/appointments/" + params.id, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, description }),
+      });
+    } else {
+      await fetch("http://localhost:4000/appointments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, description }),
+      });
+    }
+
+    router.push("/ver-citas");
+  };
+
   return (
     <>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-md mx-auto bg-white p-8 rounded-md shadow-md"
+      >
         <h2 className="text-2xl font-bold mb-6">Crear Nueva Cita Médica</h2>
 
         <div className="mb-4">
@@ -31,10 +56,12 @@ function CrearCita() {
             Nombre
           </label>
           <input
+            onChange={(e) => setName(e.target.value)}
             type="text"
             placeholder="Nombre"
             id="name"
             name="name"
+            value={name}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             required
           />
@@ -48,9 +75,11 @@ function CrearCita() {
             Descripción
           </label>
           <textarea
+            onChange={(e) => setDescription(e.target.value)}
             id="description"
             name="description"
             placeholder="Descripción"
+            value={description}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             rows="4"
             required
@@ -75,10 +104,28 @@ function CrearCita() {
         <button
           type="submit"
           className="bg-blue-500 text-white py-2 px-6 rounded-full font-bold hover:bg-blue-400 transition duration-300"
-          onClick={() => router.push("/ver-citas")}
         >
-          Crear Cita
+          {params.id ? "Actualizar Cita" : "Crear Cita"}
         </button>
+        {params.id && (
+          <button
+            onClick={async () => {
+              const res = fetch(
+                "http://localhost:4000/appointments/" + params.id,
+                {
+                  method: "DELETE",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+              router.push("/ver-citas");
+            }}
+            className="bg-red-500 text-white py-2 px-6 rounded-full font-bold hover:bg-red-400 transition duration-300 ml-4"
+          >
+            Eliminar cita
+          </button>
+        )}
       </form>
     </>
   );
