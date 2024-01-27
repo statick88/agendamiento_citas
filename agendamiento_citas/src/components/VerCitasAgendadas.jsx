@@ -8,7 +8,7 @@ function VerCitasAgendadas() {
   useEffect(() => {
     fetch('http://localhost:3001/appointments') // Asegúrate de reemplazar esto con la URL de tu servidor
       .then(response => response.json())
-      .then(data => setCitas(data));
+      .then(data => setCitas(data)); // Eliminar .appointment para actualizar el estado de citas
   }, []);
 
   return (

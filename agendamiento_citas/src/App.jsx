@@ -9,8 +9,8 @@ function App() {
       <div className="app-container"> {/* Añade la clase al contenedor principal */}
         <h1>📅 Sistema de Agendamiento de Citas 📅</h1>
         <ul>
-          <li><a href="/ver-citas">🔍 Ver Cita</a></li>
-          <li><a href="/crear-cita">➕ Crear Cita</a></li>
+          <li><a href="/ver-citas">🔍 Ver Cita</a></li> {/*  Enlace a la ruta para ver citas agendadas */}
+          <li><a href="/crear-cita">➕ Crear Cita</a></li> {/*  Enlace  a la ruta para crear una cita nueva */}
         </ul>
         <Switch>
           <Route path="/crear-cita">

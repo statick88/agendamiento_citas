@@ -63,6 +63,7 @@ app.post('/appointments', (req, res) => {
   res.status(201).json(newAppointment);
 });
 
+// PUT endpoint to update an existing appointment
  app.put('/appointments/:id', (req, res) => {
    const id = req.params.id;
    let { date, name, description } = req.body;
@@ -97,6 +98,7 @@ app.delete('/appointments/:id', (req, res) => {
   res.status(204).end();
 });
 
+// Start the server
 app.listen(3001, () => {
   console.log('Server is running on port 3001');
 });
