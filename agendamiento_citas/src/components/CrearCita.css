@@ -1,0 +1,38 @@
+/* Estilos para el contenedor principal */
+.crear-cita-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    text-align: center; /* Alineación horizontal centrada */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alineación vertical centrada */
+    align-items: center; /* Alineación horizontal centrada */
+  }
+  
+  /* Estilos para los campos de entrada y botón */
+  .crear-cita-container input[type="date"],
+  .crear-cita-container input[type="text"],
+  .crear-cita-container button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Para incluir padding y border en el ancho */
+  }
+  
+  .crear-cita-container button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .crear-cita-container button:hover {
+    background-color: #0056b3;
+  }
+  

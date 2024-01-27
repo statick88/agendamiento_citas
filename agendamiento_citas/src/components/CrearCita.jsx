@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import './CrearCita.css'; // Importa el CSS
 
 function CrearCita() {
   console.log('Rendering CrearCita component');
@@ -50,22 +51,15 @@ function CrearCita() {
   };
 
   return (
-    <div>
+    <div className="crear-cita-container"> {/* Añade la clase al contenedor principal */}
       <p>Seleccione la fecha para agendar una cita:</p>
       <input type="date" onChange={handleDateChange} />
-      <input type="text" placeholder="Nombre de la cita" onChange={handleNameChange} /> {/* Nuevo campo de entrada para el nombre de la cita */}
-      <input type="text" placeholder="Descripción de la cita" onChange={handleDescriptionChange} /> {/* Nuevo campo de entrada para la descripción de la cita */}
+      <input type="text" placeholder="Nombre de la cita" onChange={handleNameChange} />
+      <input type="text" placeholder="Descripción de la cita" onChange={handleDescriptionChange} />
       <button onClick={handleConfirmClick}>Confirmar cita</button>
-      <div>
-      {citas && citas.map(cita => (
-        <div key={cita.id}>
-          <p>{cita.date} - {cita.name}</p>
-          <p>{cita.description}</p>
-        </div>
-      ))}
-      </div>
     </div>
   );
 }
 
 export default CrearCita;
+

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import './VerCitasAgendadas.css'; // Importa el CSS
 
 function VerCitasAgendadas() {
   console.log('Rendering VerCitasAgendadas component');
@@ -12,21 +12,26 @@ function VerCitasAgendadas() {
   }, []);
 
   return (
-    <div>
-      <Link to="/crear-cita">Crear nueva cita</Link>
+    <div className="ver-citas-container"> {/* Añade la clase al contenedor principal */}
       <h2>Citas Agendadas:</h2>
-      <div>
-      {citas && citas.map(cita => (
-        <div key={cita.id}>
-          <p>Fecha     -     Nombre</p>
-          <p>{cita.date} - {cita.name}</p>
-          Descripcion
-          <p>{cita.description}</p>
-          <p>------------------------------</p>
-        </div>
-         
-      ))}
-      </div>
+      <table className="ver-citas-table"> {/* Utiliza una tabla HTML */}
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          {citas && citas.map(cita => (
+            <tr key={cita.id}>
+              <td>{cita.date}</td>
+              <td>{cita.name}</td>
+              <td>{cita.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
