@@ -30,3 +30,22 @@ Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request p
 
 ## Licencia
 MIT
+
+## INTEGRANTES
+
+Barbara Espinosa 
+Jeimmy Tinoco 
+Diego Torres 
+
+## CAMBIOS
+
+Se modificaron los archivos:
+    - CrearCitas.jsx
+    - VerCitasAgendadas.jsx
+    - index.js
+
+Se instalo lo siguiente:
+    - npm install express
+    - npm install vite --save-dev
+    - npm install cores 
+    
