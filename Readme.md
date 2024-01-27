@@ -1,4 +1,4 @@
-# Sistema de Agendamiento de Citas Simbaña Adrian
+# Sistema de Agendamiento de Citas
 
 Este proyecto es una aplicación de agendamiento de citas.
 
@@ -9,19 +9,12 @@ Primero, clona el repositorio:
 ```bash
 git clone <url del repositorio>
 ```
-Luego, instala las dependencias en el proyecto y el servidor:
+Luego, instala las dependencias:
 
 ```bash	
 cd <nombre del repositorio>
 npm install
 ```
-Luego, iniciar el servidor:
-
-```bash	
-cd <carpeta servidor>
-node index.js
-```
-
 Uso
 Para iniciar la aplicación en modo de desarrollo, ejecuta:
 
@@ -29,7 +22,8 @@ Para iniciar la aplicación en modo de desarrollo, ejecuta:
 npm run dev
 ```
 ## Rutas
-Las rutas ya estan definidas por botones para facilitar la navegación dentro del sistema.
+`/crear-cita`: Esta ruta muestra el componente CrearCita, donde puedes seleccionar una fecha para agendar una nueva cita.
+`/ver-citas`: Esta ruta muestra el componente VerCitasAgendadas, donde puedes ver todas las citas agendadas.
 
 ## Contribución
 Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para cualquier contribución.
