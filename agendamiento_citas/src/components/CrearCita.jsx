@@ -15,12 +15,41 @@ function CrearCita() {
     setSelectedDate(event.target.value);
   };
 
-  const handleConfirmClick = () => {
-    if (selectedDate) {
-      alert(`Se creará una cita el día ${selectedDate}, confirma tu cita`);
-      // Aquí puedes enviar la cita al servidor o almacenarla en el estado global de la aplicación
-    }
-  };
+const handleConfirmClick = () => {
+  if (selectedDate) {
+    // Crear el objeto cita con la información necesaria
+    const newAppointment = {
+      date: selectedDate,
+      // Puedes añadir más campos si es necesario, como nombre o descripción
+    };
+
+    // Opciones para la solicitud POST
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newAppointment)
+    };
+
+    // Enviar la nueva cita al servidor
+    fetch('http://localhost:3001/appointments', requestOptions)
+      .then(response => response.json())
+      .then(data => {
+        // Aquí puedes manejar la respuesta del servidor
+        // Por ejemplo, puedes recargar las citas o añadir la nueva cita al estado local
+        console.log(data);
+        alert(`Cita creada para el día ${selectedDate}`);
+        setCitas([...citas, data]);
+      })
+      .catch(error => {
+        // Manejo de errores
+        console.error('Error al crear la cita:', error);
+      });
+  } else {
+    // Si no se seleccionó una fecha, puedes mostrar una alerta o manejar este caso como consideres necesario
+    alert('Por favor, selecciona una fecha para la cita.');
+  }
+};
+
 
   return (
     <div>
