@@ -1,0 +1,7 @@
+-- CreateTable
+CREATE TABLE "Appointments" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "date" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "name" TEXT NOT NULL,
+    "description" TEXT NOT NULL
+);
